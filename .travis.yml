@@ -26,3 +26,5 @@ deploy: # see README for details on these keys
   # the secure key indicates an encrypted value; see README
   api_key:
     secure: FK85DYc7X6ASIevUfqY5qFQfGv7wsXX1EjNQNQLRMHjR5AJct/11u7aasOdsqAX/1gVN15fj/RqrtbYEFTeekq0AZKBWWZk96aKD1wz8FNUfoCZPvWEgV9si0kt9vZpMJp+G9uh5DYz0wluREpeDplxa/NtCDmb7Mf/jHRLG+IQHvTvJdvt3zfF+yC/RcP+QN2YLunKTJQXKfVlPIjnuhc0AyIL90IOf/oPRtXP3OfI4+k9uqstXnhdeZ1HJuB9perCLJMxW2BEJMSGmfgOit2DY/hm14T/OoFR7f1bB51hjOQv3wls1nJnkFM0hJifkstrFdw864n3H0IlDOYg8yaB+BVKeI1Q1NbEgg9v8yWBFIqayukqi+hE4XQI+7y4eiDhtxF/tAJyY4q3Zx+DKBrpgv+u8NkfBM6BtKrliIMnZxgKEBfuqE0B6DoSj4I80CO5CUUadnJgcPiCyReLkR9xK4EzxTGBiic4Hc46HQpM4d84qz63e/4w2T1EVMCmin9gglRFSzr6LEVz3ZSm1n5xKKRAdeseHl7YZmYk81wrlEFh3Q2X765zep3LRP8qLsY4FC2icdtfFcSMXrDSXARFYarxdJlw3rVQbk5b+gjdrLwDPU1oO8eentp6Cr63Hy3+D9hru0tYDB+O6M5TTwhc9inABWkQ7b5DNlY6G/PA=
+  on:
+    branch: main
