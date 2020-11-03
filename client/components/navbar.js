@@ -19,13 +19,14 @@ const Navbar = ({handleClick, isLoggedIn}) => (
       ) : (
         <div>
           {/* The navbar will show these links before you log in */}
-          <Icon color="red" name="users" />
-          <Button color="orange">
-            <Link to="/login">Login</Link>
-          </Button>
-          <Button>
-            <Link to="/signup">Sign Up</Link>
-          </Button>
+          <Button.Group floated="right">
+            <Button basic color="green" compact floated="right">
+              <Link to="/login">Login</Link>
+            </Button>
+            <Button color="green" compact floated="right">
+              <Link to="/signup">Sign Up</Link>
+            </Button>
+          </Button.Group>
         </div>
       )}
     </nav>
