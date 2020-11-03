@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
+import {Button, Icon} from 'semantic-ui-react'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
@@ -18,9 +19,13 @@ const Navbar = ({handleClick, isLoggedIn}) => (
       ) : (
         <div>
           {/* The navbar will show these links before you log in */}
-          Need to style this into blocks that line up nicely.
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
+          <Icon color="red" name="users" />
+          <Button color="orange">
+            <Link to="/login">Login</Link>
+          </Button>
+          <Button>
+            <Link to="/signup">Sign Up</Link>
+          </Button>
         </div>
       )}
     </nav>
