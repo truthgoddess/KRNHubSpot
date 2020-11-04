@@ -1,10 +1,21 @@
+html {
+  height: 100%;
+  margin: auto;
+}
+
 body {
   font-family: sans-serif;
+  height: 100%;
+}
+
+#app {
+  height: 100%;
 }
 
 .app-container {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .navbar-container {
@@ -21,6 +32,28 @@ body {
 .right-navbar-container {
   display: flex;
   align-self: flex-end;
+}
+
+.bottom-window-container {
+  display: flex;
+  flex-direction: row;
+  background-color: aliceblue;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.command-line-container {
+  display: flex;
+  background-color: aqua;
+  width: 100%;
+  height: 100%;
+}
+
+.program-window-container {
+  display: flex;
+  background-color: beige;
+  width: 100%;
+  height: 100%;
 }
 
 .right-nav-button {

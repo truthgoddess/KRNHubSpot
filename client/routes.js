@@ -19,9 +19,9 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
-        <div>
-          Change Routes so there is one Route? and the Logged In Route is just
-          slightly different?
+        <div className="bottom-window-container">
+          <div className="command-line-container">commandline</div>
+          <div className="program-window-container">programwindow</div>
         </div>
         {/* <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} /> */}
