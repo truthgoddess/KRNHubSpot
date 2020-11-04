@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
-import {Button, Icon} from 'semantic-ui-react'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
@@ -17,21 +16,17 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           </a>
         </div>
       ) : (
-        <div>
+        <div className="navbar-container">
           {/* The navbar will show these links before you log in */}
-          <Button.Group floated="left">
-            <Button basic color="olive" compact>
-              <Link to="/">Home</Link>
-            </Button>
-          </Button.Group>
-          <Button.Group floated="right">
-            <Button basic color="green" compact>
-              <Link to="/login">Login</Link>
-            </Button>
-            <Button color="green" compact>
-              <Link to="/signup">Sign Up</Link>
-            </Button>
-          </Button.Group>
+          <button>
+            <Link to="/">Home</Link>
+          </button>
+          <button>
+            <Link to="/login">Login</Link>
+          </button>
+          <button>
+            <Link to="/signup">Sign Up</Link>
+          </button>
         </div>
       )}
     </nav>
