@@ -9,7 +9,25 @@ body {
 
 .navbar-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.left-navbar-container {
+  display: flex;
+  align-self: flex-start;
+}
+
+.right-navbar-container {
+  display: flex;
+  align-self: flex-end;
+}
+
+.right-nav-button {
+  align-self: auto;
+}
+
+.left-nav-button {
 }
 
 a {
