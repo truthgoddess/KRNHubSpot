@@ -5,6 +5,10 @@ import PropTypes from 'prop-types'
 import {Login, Signup, UserHome} from './components'
 import {me} from './store'
 
+function onChange(newValue) {
+  console.log('change', newValue)
+}
+
 /**
  * COMPONENT
  */

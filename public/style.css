@@ -12,6 +12,9 @@ body {
   height: 100%;
 }
 
+#ace-editor {
+}
+
 .app-container {
   display: flex;
   flex-direction: column;
