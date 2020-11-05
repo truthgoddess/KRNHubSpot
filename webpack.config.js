@@ -1,5 +1,4 @@
 const isDev = process.env.NODE_ENV === 'development'
-const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
 
 module.exports = {
   mode: isDev ? 'development' : 'production',
@@ -12,7 +11,7 @@ module.exports = {
     filename: './public/bundle.js',
   },
   resolve: {
-    extensions: ['.js', '.jsx', 'tff'],
+    extensions: ['.js', '.jsx'],
   },
   devtool: 'source-map',
   watchOptions: {
