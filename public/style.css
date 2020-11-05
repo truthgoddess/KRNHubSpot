@@ -37,14 +37,13 @@ body {
 .bottom-window-container {
   display: flex;
   flex-direction: row;
-  background-color: aliceblue;
   justify-content: space-between;
   height: 100%;
 }
 
 .command-line-container {
   display: flex;
-  background-color: aqua;
+  background-color: rgb(240, 215, 182);
   width: 100%;
   height: 100%;
 }
@@ -57,10 +56,22 @@ body {
 }
 
 .right-nav-button {
-  align-self: auto;
+  background-color: black;
+  box-shadow: 0 0 0 0.1rem rgb(242, 248, 213);
+  margin-bottom: 0.5rem;
+}
+
+.right-nav-button a {
+  color: white;
 }
 
 .left-nav-button {
+  background-color: black;
+  box-shadow: 0 0 0 0.1rem rgb(195, 207, 212);
+}
+
+.left-nav-button a {
+  color: white;
 }
 
 a {

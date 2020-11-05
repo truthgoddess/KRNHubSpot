@@ -5,8 +5,6 @@ import {Router} from 'react-router-dom'
 import history from './history'
 import store from './store'
 import App from './app'
-
-console.log(' yes ')
 // establishes socket connection
 import './socket'
 
