@@ -4,8 +4,7 @@ import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {Login, Signup, UserHome} from './components'
 import {me} from './store'
-import * as monaco from 'monaco-editor'
-
+// import * as monaco from 'monaco-editor'
 function onChange(newValue) {
   console.log('change', newValue)
 }
@@ -15,10 +14,11 @@ function onChange(newValue) {
  */
 class Routes extends Component {
   componentDidMount() {
-    monaco.editor.create(document.getElementById('monaco-editor'), {
-      value: 'console.log("Hello, world")',
-      language: 'javascript',
-    })
+    // monaco.editor.create(document.getElementById('monaco-editor'), {
+    //   value: 'console.log("Hello, world")',
+    //   language: 'javascript',
+    // })
+
     this.props.loadInitialData()
   }
 
