@@ -34,7 +34,19 @@ function WindowContainers(props) {
 
   return (
     <div className="bottom-window-container">
-      <div className="command-line-container" id="monaco-editor"></div>
+      <div id="left-container-main">
+        <div className="command-line-container" id="monaco-editor"></div>
+        <div id="terminal-editor">
+          <div id="terminal-history">
+            <div className="terminal-line">hellsdfsdfo</div>
+            <div className="terminal-line">line</div>
+            <div className="terminal-line">ofthis</div>
+          </div>
+
+          <input id="terminal-input"></input>
+        </div>
+      </div>
+
       <div className="program-window-container"></div>
     </div>
   )
