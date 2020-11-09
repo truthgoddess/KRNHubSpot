@@ -1,4 +1,5 @@
 const isDev = process.env.NODE_ENV === 'development'
+//const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
 
 module.exports = {
   mode: isDev ? 'development' : 'production',
