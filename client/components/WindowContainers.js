@@ -26,9 +26,10 @@ function WindowContainers(props) {
       {
         value: 'console.log("Hello, world")',
         language: 'javascript',
+        fontSize: 20,
+        automaticLayout: true,
       }
     )
-    //monaco.editor.background('black')
   }, [])
 
   return (
