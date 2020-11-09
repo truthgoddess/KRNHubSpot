@@ -1,5 +1,5 @@
 const isDev = process.env.NODE_ENV === 'development'
-//const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
 
 module.exports = {
   mode: isDev ? 'development' : 'production',
@@ -9,7 +9,7 @@ module.exports = {
   ],
   output: {
     path: __dirname,
-    filename: './public/dist/bundle.js',
+    filename: './public/dist/[name].bundle.js',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
