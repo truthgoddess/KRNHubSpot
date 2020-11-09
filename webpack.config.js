@@ -1,3 +1,4 @@
+const path = require('path')
 const isDev = process.env.NODE_ENV === 'development'
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
 
@@ -8,8 +9,8 @@ module.exports = {
     './client/index.js',
   ],
   output: {
-    path: __dirname,
-    filename: './public/dist/[name].bundle.js',
+    path: path.resolve(__dirname, 'public/dist'),
+    filename: '[name].bundle.js',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -25,6 +26,19 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.ttf$/,
+        use: ['file-loader'],
+      },
     ],
   },
+  plugins: [
+    new MonacoWebpackPlugin({
+      languages: ['typescript', 'javascript', 'css'],
+    }),
+  ],
 }
