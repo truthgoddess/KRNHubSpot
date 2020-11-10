@@ -57,7 +57,7 @@ body {
 }
 
 #terminal-input {
-  width: 99%;
+  width: 80%;
   font-size: larger;
   color: white;
   background-color: rgb(63, 63, 63);
@@ -76,16 +76,35 @@ body {
 }
 
 .handler {
-  background-color: grey;
+  background-color: rgb(255, 255, 255);
   width: 10px;
   padding: 0;
   flex: 0 0 auto;
 }
 
+#terminal-input-container {
+  display: flex;
+  flex-direction: row;
+}
+
+#button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+}
+
 #program-window-container {
-  background-color: beige;
+  background-color: rgb(0, 0, 0);
   width: 100%;
   height: 100%;
+}
+
+#run-button {
+  width: 30%;
+}
+
+#enter-button {
+  width: 30%;
 }
 
 #left-container-main {

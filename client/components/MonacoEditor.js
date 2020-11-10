@@ -1,7 +1,8 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import * as monaco from 'monaco-editor'
 
 function MonacoEditor() {
+  const [editor, setEditor] = useState(null)
   useEffect(() => {
     self.MonacoEnvironment = {
       getWorkerUrl: function (moduleId, label) {
@@ -28,9 +29,16 @@ function MonacoEditor() {
         language: 'javascript',
         fontSize: 20,
         automaticLayout: true,
+        theme: 'vs-dark',
       }
     )
+
+    setEditor(codeEditor)
   }, [])
+
+  function onRunCodeClick() {
+    console.log(eval(editor.getValue()))
+  }
 
   return (
     <React.Fragment>
@@ -41,8 +49,20 @@ function MonacoEditor() {
           <div className="terminal-line">line</div>
           <div className="terminal-line">ofthis</div>
         </div>
-
-        <input id="terminal-input"></input>
+        <div id="terminal-input-container">
+          <input id="terminal-input"></input>
+          <div id="button-container">
+            <button id="enter-button">Enter</button>
+            <button
+              id="run-button"
+              onClick={() => {
+                onRunCodeClick()
+              }}
+            >
+              Run Code
+            </button>
+          </div>
+        </div>
       </div>
     </React.Fragment>
   )
