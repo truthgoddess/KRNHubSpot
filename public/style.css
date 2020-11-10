@@ -56,6 +56,10 @@ body {
   height: 20%;
 }
 
+#terminal-history {
+  max-height: inherit;
+}
+
 #terminal-input {
   width: 80%;
   font-size: larger;

@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import * as monaco from 'monaco-editor'
+import {TerminalHistory} from '../components'
 
 function MonacoEditor() {
   const [editor, setEditor] = useState(null)
@@ -45,9 +46,7 @@ function MonacoEditor() {
       <div className="command-line-container" id="monaco-editor"></div>
       <div id="terminal-editor">
         <div id="terminal-history">
-          <div className="terminal-line">hellsdfsdfo</div>
-          <div className="terminal-line">line</div>
-          <div className="terminal-line">ofthis</div>
+          <TerminalHistory history={['three', 'one', 'two', 'three']} />
         </div>
         <div id="terminal-input-container">
           <input id="terminal-input"></input>
