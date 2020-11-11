@@ -4,6 +4,7 @@ import {TerminalHistory} from '../components'
 
 function MonacoEditor() {
   const [editor, setEditor] = useState(null)
+  const [history, setHistory] = useState(['yes'])
   useEffect(() => {
     self.MonacoEnvironment = {
       getWorkerUrl: function (moduleId, label) {
@@ -26,7 +27,7 @@ function MonacoEditor() {
     let codeEditor = monaco.editor.create(
       document.getElementById('monaco-editor'),
       {
-        value: 'console.log("Hello, world")',
+        value: 'function welcomeToKatesWebsite(){\n\treturn "instructions"\n}',
         language: 'javascript',
         fontSize: 20,
         automaticLayout: true,
@@ -37,8 +38,9 @@ function MonacoEditor() {
     setEditor(codeEditor)
   }, [])
 
-  function onRunCodeClick() {
-    console.log(eval(editor.getValue()))
+  function onEnterClick() {
+    const result = editor.getValue()
+    console.log(result)
   }
 
   return (
@@ -46,20 +48,20 @@ function MonacoEditor() {
       <div className="command-line-container" id="monaco-editor"></div>
       <div id="terminal-editor">
         <div id="terminal-history">
-          <TerminalHistory history={['three', 'one', 'two', 'three']} />
+          <TerminalHistory history={history} />
         </div>
         <div id="terminal-input-container">
           <input id="terminal-input"></input>
           <div id="button-container">
-            <button id="enter-button">Enter</button>
             <button
-              id="run-button"
+              id="enter-button"
               onClick={() => {
-                onRunCodeClick()
+                onEnterClick()
               }}
             >
-              Run Code
+              Enter
             </button>
+            <button id="run-button">Run Code</button>
           </div>
         </div>
       </div>
