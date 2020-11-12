@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import * as monaco from 'monaco-editor'
 import {TerminalHistory} from '../components'
+import parseTerminal from '../../script/goddessParser'
 
 function MonacoEditor() {
   const [editor, setEditor] = useState(null)
@@ -53,12 +54,10 @@ function MonacoEditor() {
     //get actual user eventually
     event.preventDefault()
     let historyCopy = [...history]
-    console.log(historyCopy)
     historyCopy.push('@' + tempUser + ' :: ' + inputContents)
-    console.log(historyCopy)
     setHistory(historyCopy)
+    parseTerminal(inputContents)
     setInputContents('')
-    //parse command and return message
   }
 
   return (
