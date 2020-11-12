@@ -4,7 +4,8 @@ import {TerminalHistory} from '../components'
 
 function MonacoEditor() {
   const [editor, setEditor] = useState(null)
-  const [history, setHistory] = useState(['yes'])
+  const [history, setHistory] = useState(['yes', 'no'])
+  const [inputContents, setInputContents] = useState('put commands here')
   useEffect(() => {
     self.MonacoEnvironment = {
       getWorkerUrl: function (moduleId, label) {
@@ -43,6 +44,10 @@ function MonacoEditor() {
     console.log(result)
   }
 
+  function onInputChange(event) {
+    setInputContents(event.target.value)
+  }
+
   return (
     <React.Fragment>
       <div className="command-line-container" id="monaco-editor"></div>
@@ -51,7 +56,13 @@ function MonacoEditor() {
           <TerminalHistory history={history} />
         </div>
         <div id="terminal-input-container">
-          <input id="terminal-input"></input>
+          <input
+            id="terminal-input"
+            value={inputContents}
+            onChange={(e) => {
+              onInputChange(e)
+            }}
+          ></input>
           <div id="button-container">
             <button
               id="enter-button"
