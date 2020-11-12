@@ -47,6 +47,11 @@ body {
   height: 80%;
 }
 
+#command-input {
+  display: flex;
+  flex-direction: row;
+}
+
 #terminal-editor {
   display: flex;
   justify-content: space-between;
@@ -61,7 +66,7 @@ body {
 }
 
 #terminal-input {
-  width: 80%;
+  width: 85%;
   font-size: larger;
   color: white;
   background-color: rgb(63, 63, 63);
@@ -108,7 +113,7 @@ body {
 }
 
 #enter-button {
-  width: 30%;
+  width: 15%;
 }
 
 #left-container-main {

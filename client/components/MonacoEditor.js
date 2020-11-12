@@ -4,7 +4,7 @@ import {TerminalHistory} from '../components'
 
 function MonacoEditor() {
   const [editor, setEditor] = useState(null)
-  const [history, setHistory] = useState(['yes', 'no'])
+  const [history, setHistory] = useState([])
   const [inputContents, setInputContents] = useState('put commands here')
   useEffect(() => {
     self.MonacoEnvironment = {
@@ -48,6 +48,16 @@ function MonacoEditor() {
     setInputContents(event.target.value)
   }
 
+  function onTerminalSubmit(event) {
+    event.preventDefault()
+    let historyCopy = [...history]
+    console.log(historyCopy)
+    historyCopy.push(inputContents)
+    console.log(historyCopy)
+    setHistory(historyCopy)
+    setInputContents('')
+  }
+
   return (
     <React.Fragment>
       <div className="command-line-container" id="monaco-editor"></div>
@@ -55,26 +65,24 @@ function MonacoEditor() {
         <div id="terminal-history">
           <TerminalHistory history={history} />
         </div>
-        <div id="terminal-input-container">
-          <input
-            id="terminal-input"
-            value={inputContents}
-            onChange={(e) => {
-              onInputChange(e)
-            }}
-          ></input>
-          <div id="button-container">
-            <button
-              id="enter-button"
-              onClick={() => {
-                onEnterClick()
+        <form
+          onSubmit={(e) => {
+            onTerminalSubmit(e)
+          }}
+        >
+          <div id="terminal-input-container">
+            <input
+              id="terminal-input"
+              value={inputContents}
+              onChange={(e) => {
+                onInputChange(e)
               }}
-            >
+            ></input>
+            <button id="enter-button" type="submit">
               Enter
             </button>
-            <button id="run-button">Run Code</button>
           </div>
-        </div>
+        </form>
       </div>
     </React.Fragment>
   )
