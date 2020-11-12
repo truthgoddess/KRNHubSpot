@@ -11,6 +11,7 @@ function WindowContainers(props) {
         <MonacoEditor></MonacoEditor>
       </div>
       <div className="handler"></div>
+
       <div className="bottom-window-box" id="program-window-container"></div>
     </div>
   )
