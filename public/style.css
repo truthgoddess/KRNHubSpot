@@ -63,6 +63,8 @@ body {
 
 #terminal-history {
   max-height: inherit;
+  margin-left: 1%;
+  margin-top: 1%;
 }
 
 #terminal-input {

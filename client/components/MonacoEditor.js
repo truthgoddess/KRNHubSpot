@@ -49,13 +49,16 @@ function MonacoEditor() {
   }
 
   function onTerminalSubmit(event) {
+    let tempUser = 'guest2837'
+    //get actual user eventually
     event.preventDefault()
     let historyCopy = [...history]
     console.log(historyCopy)
-    historyCopy.push(inputContents)
+    historyCopy.push('@' + tempUser + ' :: ' + inputContents)
     console.log(historyCopy)
     setHistory(historyCopy)
     setInputContents('')
+    //parse command and return message
   }
 
   return (
