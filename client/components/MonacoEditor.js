@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import * as monaco from 'monaco-editor'
 import {TerminalHistory} from '../components'
-import parseTerminal from '../../script/goddessParser'
+import parseTerminal from '../../script/commandParser'
 
 function MonacoEditor() {
   const [editor, setEditor] = useState(null)
@@ -57,7 +57,13 @@ function MonacoEditor() {
     historyCopy.push('@' + tempUser + ' :: ' + inputContents)
     setHistory(historyCopy)
     let programInfo = parseTerminal(inputContents)
-    programInfo.program()
+    console.log('programInfo', programInfo)
+    if (programInfo.returnProgram) {
+      programInfo.returnProgram.programFunction(
+        programInfo.returnProgram.arguments
+      )
+    }
+    //programInfo.program()
     historyCopy.push('@' + 'kates_website' + ' :: ' + programInfo.returnString)
     //send return string to terminal window
     setInputContents('')
