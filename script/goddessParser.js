@@ -6,9 +6,9 @@ function parseTerminal(terminalEntry) {
   console.log(terminalEntry, 'hi from parseTerminal')
 
   return {
-    //program: theProgramToRun
-    //arguments: theArguments
-    //returnString: messageForTerminal
+    program: run,
+    arguments: [],
+    returnString: 'thanks for your message',
   }
 }
 

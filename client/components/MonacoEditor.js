@@ -56,8 +56,9 @@ function MonacoEditor() {
     let historyCopy = [...history]
     historyCopy.push('@' + tempUser + ' :: ' + inputContents)
     setHistory(historyCopy)
-    parseTerminal(inputContents)
-    //call function(args)
+    let programInfo = parseTerminal(inputContents)
+    programInfo.program()
+    historyCopy.push('@' + 'kates_website' + ' :: ' + programInfo.returnString)
     //send return string to terminal window
     setInputContents('')
   }
