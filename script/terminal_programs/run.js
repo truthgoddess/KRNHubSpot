@@ -1,5 +1,5 @@
 function run() {
-  console.log('run is running')
+  console.log('run function called')
 }
 
 export default run
