@@ -50,6 +50,7 @@ function MonacoEditor() {
   }
 
   function onTerminalSubmit(event) {
+    let terminalEditor = document.getElementById('terminal-editor')
     let tempUser = 'guest2837'
     //get actual user eventually
     event.preventDefault()
@@ -66,6 +67,7 @@ function MonacoEditor() {
     //programInfo.program()
     historyCopy.push('@' + 'kates_website' + ' :: ' + programInfo.returnString)
     //send return string to terminal window
+    //scroll window to bottom
     setInputContents('')
   }
 
@@ -76,6 +78,8 @@ function MonacoEditor() {
         <div id="terminal-history">
           <TerminalHistory history={history} />
         </div>
+      </div>
+      <div id="lala">
         <form
           onSubmit={(e) => {
             onTerminalSubmit(e)
