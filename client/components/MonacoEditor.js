@@ -2,8 +2,14 @@ import React, {useEffect, useState} from 'react'
 import * as monaco from 'monaco-editor'
 import {TerminalHistory} from '../components'
 import parseTerminal from '../../script/commandParser'
+import {Calculator, SimonGame, Resume} from './index'
 
-function MonacoEditor() {
+function scrollToBottom() {
+  let terminalEditor = document.getElementById('terminal-editor')
+  terminalEditor.scrollTop = terminalEditor.scrollHeight
+}
+
+function MonacoEditor(props) {
   const [editor, setEditor] = useState(null)
   const [history, setHistory] = useState([])
   const [inputContents, setInputContents] = useState('put commands here')
@@ -50,8 +56,8 @@ function MonacoEditor() {
   }
 
   function onTerminalSubmit(event) {
-    let terminalEditor = document.getElementById('terminal-editor')
     let tempUser = 'guest2837'
+    scrollToBottom()
     //get actual user eventually
     event.preventDefault()
     let historyCopy = [...history]
@@ -68,6 +74,7 @@ function MonacoEditor() {
     historyCopy.push('@' + 'kates_website' + ' :: ' + programInfo.returnString)
     //send return string to terminal window
     //scroll window to bottom
+    props.setCurrentProgram(Resume)
     setInputContents('')
   }
 
