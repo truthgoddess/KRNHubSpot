@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 function SimonGame() {
+  let [test, setTest] = useState('')
   return (
     <div className="container container-game">
       <div className="row row-game">

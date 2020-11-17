@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import ReactMarkdown from 'react-markdown'
 
 let source = `
@@ -102,15 +102,11 @@ Bachelor of Arts, Theatre Arts
 
 `
 
-function Resume() {
-  //   useEffect(() => {
-  //     fetch('../documents/resume.md')
-  //       .then((res) => res.text())
-  //       .then((text) => setMarkdown(text))
-  //   }, [])
+function Resume(props) {
+  let resume = props ? props.programProps : ''
   return (
     <div className="markdown-container">
-      <ReactMarkdown source={source}></ReactMarkdown>
+      <ReactMarkdown source={resume}></ReactMarkdown>
     </div>
   )
 }
