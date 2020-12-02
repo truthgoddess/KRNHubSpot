@@ -10,6 +10,7 @@ function scrollToBottom() {
 }
 
 function MonacoEditor(props) {
+  const terminalSplitterString = '::'
   const [editor, setEditor] = useState(null)
   const [history, setHistory] = useState([])
   const [inputContents, setInputContents] = useState('put commands here')
@@ -57,11 +58,14 @@ function MonacoEditor(props) {
 
   function onTerminalSubmit(event) {
     let tempUser = 'guest2837'
+    let nonUser = 'kate_norton_AI'
+    let userTerminalString = `@ ${tempUser} ${terminalSplitterString} ${inputContents}`
+    let kateTerminalString = `@ ${nonUser} ${terminalSplitterString} ${inputContents}`
     scrollToBottom()
     //get actual user eventually
     event.preventDefault()
     let historyCopy = [...history]
-    historyCopy.push('@' + tempUser + ' :: ' + inputContents)
+    historyCopy.push(userTerminalString)
     setHistory(historyCopy)
     let programInfo = parseTerminal(inputContents)
     console.log('programInfo', programInfo)
@@ -71,7 +75,7 @@ function MonacoEditor(props) {
       )
     }
     //programInfo.program()
-    historyCopy.push('@' + 'kates_website' + ' :: ' + programInfo.returnString)
+    historyCopy.push(`${kateTerminalString} ${programInfo.returnString}`)
     //send return string to terminal window
     //scroll window to bottom
     props.setCurrentProgram(<Resume />)
