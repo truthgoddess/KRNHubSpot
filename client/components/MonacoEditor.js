@@ -57,22 +57,23 @@ function MonacoEditor(props) {
   }
 
   function onTerminalSubmit(event) {
+    event.preventDefault()
+
     let tempUser = 'guest2837'
     let nonUser = 'kate_norton_AI'
     let userTerminalString = `@ ${tempUser} ${terminalSplitterString} ${inputContents}`
-    let kateTerminalString = `@ ${nonUser} ${terminalSplitterString} ${inputContents}`
-    scrollToBottom()
-    //get actual user eventually
-    event.preventDefault()
+    let kateTerminalString = `@ ${nonUser} ${terminalSplitterString}`
+
+    //get current command from user
     let historyCopy = [...history]
     historyCopy.push(userTerminalString)
     setHistory(historyCopy)
+
+    //
     let programInfo = parseTerminal(inputContents)
-    console.log('programInfo', programInfo)
+    console.log('programInfo in onTerminalSubmit', programInfo)
     if (programInfo.returnProgram) {
-      programInfo.returnProgram.programFunction(
-        programInfo.returnProgram.arguments
-      )
+      programInfo.returnProgram.programFunction(programInfo.returnArguments)
     }
     //programInfo.program()
     historyCopy.push(`${kateTerminalString} ${programInfo.returnString}`)
@@ -80,6 +81,7 @@ function MonacoEditor(props) {
     //scroll window to bottom
     props.setCurrentProgram(<Resume />)
     setInputContents('')
+    scrollToBottom()
   }
 
   return (

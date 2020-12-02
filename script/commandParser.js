@@ -1,16 +1,10 @@
-import {run} from './terminal_programs'
-
-let programDictionary = {
-  run: {
-    programFunction: run,
-    requiredArguments: 1,
-  },
-}
+import commandList from './terminal_data/command_list'
+import programList from './terminal_data/program_list'
 
 //takes string and searches program for dictionary
 function doesProgramExist(programName) {
-  if (programDictionary[programName]) {
-    return programDictionary[programName]
+  if (commandList[programName]) {
+    return commandList[programName]
   } else {
     return false
   }
