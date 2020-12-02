@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import ReactMarkdown from 'react-markdown'
 
-let source = `
+let fakeResume = `
 ## Kate Norton
 
 katernorton@outlook.com  
@@ -102,13 +102,37 @@ Bachelor of Arts, Theatre Arts
 
 `
 
-function Resume(props) {
-  let resume = props ? props.programProps : ''
-  return (
-    <div className="markdown-container">
-      <ReactMarkdown source={resume}></ReactMarkdown>
-    </div>
-  )
+class Resume extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {resume: ''}
+  }
+  componentDidMount() {
+    fetch(
+      'https://gist.githubusercontent.com/truthgoddess/e90ad2e7d4f6183c722223a83aaf1753/raw/ce08334941dfcaf209cade9e32c14761ec8ee560/KateNortonResume.md'
+    )
+      .then((res) => res.text())
+      .then((text) => this.setState({resume: text}))
+  }
+  render() {
+    return (
+      <div className="markdown-container">
+        <ReactMarkdown source={this.state.resume}></ReactMarkdown>
+      </div>
+    )
+  }
 }
+
+// function Resume(props) {
+//   //const [resume, setResume] = useEffect('')
+//   //console.log(props, 'props passed to resume')
+//   //let resumetest = props ? props.programProps : 'ok'
+//   //console.log('Resume component is being processed2', resumetest)
+//   return (
+//     <div className="markdown-container">
+//       <ReactMarkdown source={this.state.resume}></ReactMarkdown>
+//     </div>
+//   )
+// }
 
 export default Resume
