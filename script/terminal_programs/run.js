@@ -1,7 +1,7 @@
-import {programList} from '/'
+import {terminal_list} from '../terminal_data'
 
 function run(args) {
-  console.log(programList)
+  console.log('terminalList', terminal_list)
   console.log('run function called with these arguments', args[0])
 }
 

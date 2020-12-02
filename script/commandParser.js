@@ -1,4 +1,4 @@
-import commandList from './terminal_data/command_list'
+import commandList from './terminal_data/terminal_list'
 import programList from './terminal_data/program_list'
 
 //takes string and searches program for dictionary
