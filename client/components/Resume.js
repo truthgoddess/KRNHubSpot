@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import ReactMarkdown from 'react-markdown'
 
 let fakeResume = `
@@ -102,37 +102,41 @@ Bachelor of Arts, Theatre Arts
 
 `
 
-class Resume extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {resume: ''}
-  }
-  componentDidMount() {
+// class Resume extends React.Component {
+//   constructor(props) {
+//     super(props)
+//     this.state = {resume: ''}
+//   }
+//   componentDidMount() {
+//     fetch(
+//       'https://gist.githubusercontent.com/truthgoddess/e90ad2e7d4f6183c722223a83aaf1753/raw/ce08334941dfcaf209cade9e32c14761ec8ee560/KateNortonResume.md'
+//     )
+//       .then((res) => res.text())
+//       .then((text) => this.setState({resume: text}))
+//   }
+//   render() {
+//     return (
+//       <div className="markdown-container">
+//         <ReactMarkdown source={this.state.resume}></ReactMarkdown>
+//       </div>
+//     )
+//   }
+// }
+
+function Resume() {
+  const [resume, setResume] = useState('')
+  useEffect(() => {
     fetch(
       'https://gist.githubusercontent.com/truthgoddess/e90ad2e7d4f6183c722223a83aaf1753/raw/ce08334941dfcaf209cade9e32c14761ec8ee560/KateNortonResume.md'
     )
       .then((res) => res.text())
-      .then((text) => this.setState({resume: text}))
-  }
-  render() {
-    return (
-      <div className="markdown-container">
-        <ReactMarkdown source={this.state.resume}></ReactMarkdown>
-      </div>
-    )
-  }
+      .then((text) => setResume(text))
+  }, [])
+  return (
+    <div className="markdown-container">
+      <ReactMarkdown source={resume}></ReactMarkdown>
+    </div>
+  )
 }
-
-// function Resume(props) {
-//   //const [resume, setResume] = useEffect('')
-//   //console.log(props, 'props passed to resume')
-//   //let resumetest = props ? props.programProps : 'ok'
-//   //console.log('Resume component is being processed2', resumetest)
-//   return (
-//     <div className="markdown-container">
-//       <ReactMarkdown source={this.state.resume}></ReactMarkdown>
-//     </div>
-//   )
-// }
 
 export default Resume

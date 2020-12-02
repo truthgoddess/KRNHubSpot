@@ -9,7 +9,7 @@ import {
 } from '../components'
 
 function WindowContainers(props) {
-  const [currentProgram, setCurrentProgram] = useState('')
+  const [currentProgram, setCurrentProgram] = useState(<Resume />)
 
   return (
     <div className="bottom-window-container">
@@ -19,11 +19,11 @@ function WindowContainers(props) {
       <div className="handler"></div>
 
       <div className="bottom-window-box" id="program-window-container">
-        <Resume />
-        {/* <ProgramRenderer
+        {/* <Resume /> */}
+        <ProgramRenderer
           programComponent={currentProgram}
           //programProps={currentResume}
-        /> */}
+        />
       </div>
     </div>
   )

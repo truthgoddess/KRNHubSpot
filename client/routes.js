@@ -28,7 +28,7 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
-        <Route path="/home" component={WindowContainers} />
+        <Route path="/home" render={WindowContainers} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
