@@ -74,8 +74,7 @@ function MonacoEditor(props) {
     historyCopy.push('@' + 'kates_website' + ' :: ' + programInfo.returnString)
     //send return string to terminal window
     //scroll window to bottom
-    console.log('right before setting program in Monaco Editor')
-    props.setCurrentProgram(Calculator)
+    props.setCurrentProgram(<Resume />)
     setInputContents('')
   }
 

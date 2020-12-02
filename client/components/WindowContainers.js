@@ -5,11 +5,12 @@ import {
   SimonGame,
   Resume,
   Calculator,
+  WelcomeProgram,
   ProgramRenderer,
 } from '../components'
 
 function WindowContainers(props) {
-  const [currentProgram, setCurrentProgram] = useState(<Resume />)
+  const [currentProgram, setCurrentProgram] = useState(<WelcomeProgram />)
 
   return (
     <div className="bottom-window-container">
