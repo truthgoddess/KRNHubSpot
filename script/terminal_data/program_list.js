@@ -1,8 +1,5 @@
-import {Resume} from '../../client/components'
-import React from 'react'
-
 let program_list = {
-  resume: Resume,
+  resume: 'resume',
 }
 
 export default program_list

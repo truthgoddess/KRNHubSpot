@@ -72,14 +72,23 @@ function MonacoEditor(props) {
     //
     let programInfo = parseTerminal(inputContents)
     console.log('programInfo in onTerminalSubmit', programInfo)
+    let componentStringName = ''
     if (programInfo.returnProgram) {
-      programInfo.returnProgram.programFunction(programInfo.returnArguments)
+      componentStringName = programInfo.returnProgram.programFunction(
+        programInfo.returnArguments
+      )
     }
-    //programInfo.program()
+    console.log('component string name', componentStringName)
     historyCopy.push(`${kateTerminalString} ${programInfo.returnString}`)
     //send return string to terminal window
     //scroll window to bottom
-    props.setCurrentProgram(<Resume />)
+    if (componentStringName) {
+      switch (componentStringName) {
+        case 'resume':
+          props.setCurrentProgram(<Resume />)
+      }
+    }
+    //props.setCurrentProgram(<Resume />)
     setInputContents('')
     scrollToBottom()
   }
